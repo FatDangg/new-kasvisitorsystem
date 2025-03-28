@@ -1,0 +1,156 @@
+/* admin.css */
+:root {
+    --primary-color: #00573d;
+    --secondary-color: #e0f2f1;
+    --accent-color: #ff8f00;
+    --text-color: #333;
+    --background-color: #f5f5f5;
+    --font-family: 'Montserrat', sans-serif;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+  }
+  
+  header h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn-logout {
+    background-color: var(--accent-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+  
+  main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .filters input,
+  .filters select {
+    width: 48%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  #visitorTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  #visitorTable th,
+  #visitorTable td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  
+  #visitorTable th {
+    background-color: var(--secondary-color);
+    font-weight: 600;
+  }
+  
+  #visitorTable tbody tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  #visitorTable img {
+    width: 50px;
+    border-radius: 4px;
+  }
+  
+  .badge-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  
+  .badge-btn:hover {
+    background-color: var(--accent-color);
+  }
+  /* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* On top of other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Dimmed background */
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Centered, 10% from top */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    animation: slideIn 0.3s ease;
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+  }
+  
+  .modal-close:hover {
+    color: #000;
+  }
+  
+  

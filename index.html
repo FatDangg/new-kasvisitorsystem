@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KAS School Visitor Management</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Include Google Fonts for a modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header with school logo on the top left -->
+  <header>
+    <img src="logo.png" alt="School Logo" id="header-logo">
+    <h1>KAS School Visitor Management</h1>
+  </header>
+
+  <main>
+    <!-- Step 1: Sign In Page -->
+    <section id="step-1" class="step active">
+      <div class="centered">
+        <img src="logo.png" alt="School Logo" class="center-logo">
+        <button id="btn-signin" class="primary-btn">Sign In</button>
+      </div>
+    </section>
+
+    <!-- Step 2: Full Name Entry -->
+    <section id="step-2" class="step">
+      <h2>Enter Your Full Name</h2>
+      <form id="form-name">
+        <input type="text" id="first-name" placeholder="First Name" required>
+        <input type="text" id="last-name" placeholder="Last Name" required>
+        <button type="button" id="btn-name-next" class="primary-btn">Next</button>
+      </form>
+    </section>
+
+    <!-- Step 3: Contact Information, Purpose & Meeting Person -->
+    <section id="step-3" class="step">
+      <h2>Contact Information</h2>
+      <form id="form-contact">
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="tel" id="phone" placeholder="Phone Number (10 digits)" pattern="\\d{10}" required>
+        <label for="purpose">Purpose of Visit:</label>
+        <select id="purpose" required>
+          <option value="" disabled selected>Select a purpose</option>
+          <option value="Meeting">Meeting</option>
+          <option value="Tour">Tour</option>
+          <option value="Event">Event</option>
+          <option value="Delivery">Delivery</option>
+          <option value="Other">Other</option>
+        </select>
+        <input type="text" id="finding" placeholder="Who are you meeting?" required>
+        <button type="button" id="btn-contact-next" class="primary-btn">Next</button>
+      </form>
+    </section>
+
+    <!-- Step 4: Agreement & Checkbox -->
+    <section id="step-4" class="step">
+      <h2>KAS School Visitor Agreement & Confidentiality Form</h2>
+      <div class="agreement">
+        <p>
+          This School Visitor Agreement ("Agreement") is made and entered into on [Date], by and between Korea American School (KAS) and [Name] representing [Company], hereinafter referred to as the "Visitor".
+        </p>
+        <p>
+          <strong>1. Purpose</strong><br>
+          This Agreement sets forth the responsibilities and obligations of all individuals visiting the KAS campus to ensure the safety, privacy, and well-being of all students and staff, and to maintain compliance with relevant laws and regulations under the jurisdiction of the Republic of China (Taiwan).
+        </p>
+        <p>
+          <strong>2. Confidentiality and Privacy</strong><br>
+          The Visitor agrees not to disclose, photograph, record, or otherwise disseminate any personally identifiable information of students, staff, or faculty. This includes but is not limited to:<br>
+          • Student names, images, or voices<br>
+          • Classroom activities or materials<br>
+          • Educational records or assessments<br>
+          This confidentiality obligation shall remain in effect indefinitely, even after the conclusion of the visit.
+        </p>
+        <p>
+          <strong>3. Compliance with Child Protection Laws</strong><br>
+          The Visitor acknowledges and agrees to abide by the Protection of Children and Youths Welfare and Rights Act (兒童及少年福利與權益保障法) and any other applicable Taiwanese legislation that protects children. In particular:<br>
+          • Article 49 prohibits any form of abuse, harassment, or endangerment of children.<br>
+          • Article 43 requires mandatory reporting of any suspected abuse or harm to minors.<br>
+          • Article 59 specifies restrictions on photographing or recording minors without explicit parental or institutional consent.<br>
+          Any violations will be reported to appropriate authorities and may result in legal action.
+        </p>
+        <p>
+          <strong>4. Behavior and Conduct on Campus</strong><br>
+          The Visitor agrees to:<br>
+          • Wear a visible visitor badge at all times while on campus.<br>
+          • Be escorted or accompanied by a staff member unless authorized otherwise.<br>
+          • Avoid entering unauthorized areas including restrooms, classrooms without permission, and any other restricted zones.<br>
+          • Follow all school safety protocols, including emergency procedures.
+        </p>
+        <p>
+          <strong>5. Limitations</strong><br>
+          This Agreement does not grant the Visitor access to any student files, internal reports, or confidential documents belonging to KAS, its students, or staff.
+        </p>
+        <p>
+          <strong>6. Liability and Indemnification</strong><br>
+          The Visitor shall be personally liable for any damage, misconduct, or breach of this agreement. The School reserves the right to terminate the visit at any time if policies are not followed.
+        </p>
+        <p>
+          <strong>7. Governing Law</strong><br>
+          This Agreement shall be governed and construed in accordance with the laws of the Republic of China (Taiwan).
+        </p>
+      </div>
+      <div class="agreement-checkbox">
+        <input type="checkbox" id="agree-checkbox" required>
+        <label for="agree-checkbox">I have read and agree to the Visitor Agreement & Confidentiality Form.</label>
+      </div>
+      <button type="button" id="btn-agreement-next" class="primary-btn">Next</button>
+    </section>
+
+    <!-- Step 5: Capture Photo with Circular Live Feed -->
+    <section id="step-5" class="step">
+      <h2>Take a Picture</h2>
+      <div id="camera-container" class="circular-video">
+        <video id="video" autoplay playsinline></video>
+        <canvas id="photo-canvas" style="display: none;"></canvas>
+        <!-- Image element to display captured photo -->
+        <img id="captured-photo" alt="Captured Photo" style="display: none;">
+      </div>
+      <div id="photo-controls">
+        <button type="button" id="btn-capture" class="primary-btn">Capture Photo</button>
+        <div id="countdown" style="display: none;">3</div>
+        <button type="button" id="btn-retake" class="secondary-btn" style="display: none;">Retake Photo</button>
+        <button type="button" id="btn-photo-next" class="primary-btn" style="display: none;">Next</button>
+      </div>
+    </section>
+
+    <!-- Step 6: Welcome & Data Submission -->
+    <section id="step-6" class="step">
+      <h2>Welcome to KAS!</h2>
+      <p>Thank you for signing in. We hope you have a great visit.</p>
+      <button type="button" id="btn-finish" class="primary-btn">Finish</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 KAS School Visitor Management</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

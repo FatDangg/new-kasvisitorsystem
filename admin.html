@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>KAS Admin Panel</title>
+  <link rel="stylesheet" href="admin.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>KAS Admin Panel</h1>
+    <div class="header-right">
+      <button id="logoutBtn" class="btn-logout">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="Search by name or purpose..." />
+      <select id="dateFilter">
+        <option value="">All dates</option>
+        <option value="today">Today</option>
+        <option value="thisweek">This week</option>
+      </select>
+    </div>
+
+    <table id="visitorTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Purpose</th>
+          <th>Date/Time</th>
+          <th>Meeting</th>
+          <th>Photo</th>
+          <th>Badge</th>
+        </tr>
+      </thead>
+      <tbody id="visitorTbody"></tbody>
+    </table>
+  </main>
+
+  <script src="admin.js"></script>
+  <div id="visitorModal" class="modal">
+    <div class="modal-content">
+      <span id="modalClose" class="modal-close">&times;</span>
+      <h2 id="modalName"></h2>
+      <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+      <p><strong>Phone:</strong> <span id="modalPhone"></span></p>
+      <p><strong>Purpose:</strong> <span id="modalPurpose"></span></p>
+      <p><strong>Meeting:</strong> <span id="modalFinding"></span></p>
+      <p><strong>Date/Time:</strong> <span id="modalCreatedAt"></span></p>
+    </div>
+  </div>  
+<!-- Visitor Details Modal -->
+</body>
+</html>
