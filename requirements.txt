@@ -1,4 +1,9 @@
 Flask==2.2.3
 Flask-SQLAlchemy==2.5.1
 Flask-Cors==3.0.10
+Pillow==9.5.0
+brother_ql==0.9.1
+reportlab==3.6.12
 gunicorn==20.1.0
+SQLAlchemy<2.0
+Werkzeug<2.3
