@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
 app = Flask(__name__, static_folder=".", static_url_path="")
-app.secret_key = "YOUR_SECRET_KEY"  # Replace with a secure secret key
+app.secret_key = "goddam"  # Replace with a secure secret key
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///visitors.db'
@@ -14,8 +14,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # For demo purposes, hardcode admin credentials
-ADMIN_USERNAME = "admin"
-ADMIN_PASSWORD = "password123"
+ADMIN_USERNAME = "danielchen"
+ADMIN_PASSWORD = "password"
 
 # Visitor model
 class Visitor(db.Model):
